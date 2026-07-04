@@ -1,0 +1,12 @@
+services:
+  bakery-website:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: bakery-website:latest
+    container_name: bakery-website
+    ports:
+      - "80:80"
+    restart: unless-stopped
+    environment:
+      - TZ=Asia/Karachi
