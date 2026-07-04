@@ -16,11 +16,8 @@ COPY . .
 # Build the React + Vite application
 RUN npm run build
 
-# Install a simple, lightweight static file server globally
-RUN npm install -g serve
-
 # Expose port 8080 by default (can be overridden by environment variable)
 EXPOSE 8080
 
 # Serve the build folder on the dynamic port defined by Google Cloud Run ($PORT)
-CMD ["sh", "-c", "serve -s dist -l ${PORT:-8080}"]
+CMD ["sh", "-c", "npx serve -s dist -l ${PORT:-8080}"]
